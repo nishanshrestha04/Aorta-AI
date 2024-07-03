@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import img1 from "../images/walking.jpg";
 import img2 from "../images/nosmoke.jpg";
+import img3 from '../images/drinking.jpg'
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -139,11 +140,11 @@ const Dashboard = () => {
           <form
             action="#"
             id="pre"
-            className="flex px-20 gap-[150px]"
+            className="flex px-14 gap-[100px]"
             onSubmit={submitHandler}
           >
             <div className="first">
-              <div className="relative mt-[30px]">
+              <div className="relative mt-[20px]">
                 <select
                   name="walking"
                   id="walking"
@@ -586,8 +587,10 @@ const Dashboard = () => {
             </div>
 
             <div className="third">
+
               <div className="relative mt-[20px]">
-                <select
+                <input
+                  type="number"
                   name="age"
                   id="age"
                   value={age}
@@ -595,98 +598,18 @@ const Dashboard = () => {
                   onChange={(e) => {
                     setAge(e.target.value);
                   }}
-                  className={`w-[300px] h-[40px] bg-[#c8102e] border-b-2 border-white pt-4 focus:outline-none transition-colors peer mt-[30px] font-lato text-white tracking-widest duration-500`}
+                  className={`w-[300px] h-[40px] bg-[#c8102e] border-b-2 border-white py-2 focus:outline-none transition-colors peer mt-[30px] font-lato text-white tracking-widest duration-500 ${
+                    isFocused || hasText ? "pt-6" : ""
+                  }`}
+                  autoComplete="off"
                   onFocus={() => setAgeFocused(true)}
                   onBlur={(e) => {
                     setAgeFocused(false);
                     setAgeHasText(e.target.value !== "");
                   }}
-                >
-                  <option
-                    value=""
-                    className="bg-white text-[#c8102e] h-4"
-                  ></option>
-                  <option
-                    value="18-24"
-                    className="bg-white text-[#c8102e] p-4 text-sm"
-                  >
-                    18-24
-                  </option>
-                  <option
-                    value="25-29"
-                    className="bg-white text-[#c8102e] p-4 text-sm"
-                  >
-                    25-29
-                  </option>
-                  <option
-                    value="30-34"
-                    className="bg-white text-[#c8102e] p-4 text-sm"
-                  >
-                    30-34
-                  </option>
-                  <option
-                    value="35-39"
-                    className="bg-white text-[#c8102e] p-4 text-sm"
-                  >
-                    35-39
-                  </option>
-                  <option
-                    value="40-44"
-                    className="bg-white text-[#c8102e] p-4 text-sm"
-                  >
-                    40-44
-                  </option>
-                  <option
-                    value="45-49"
-                    className="bg-white text-[#c8102e] p-4 text-sm"
-                  >
-                    45-49
-                  </option>
-                  <option
-                    value="50-54"
-                    className="bg-white text-[#c8102e] p-4 text-sm"
-                  >
-                    50-54
-                  </option>
-                  <option
-                    value="55-59"
-                    className="bg-white text-[#c8102e] p-4 text-sm"
-                  >
-                    55-59
-                  </option>
-                  <option
-                    value="60-64"
-                    className="bg-white text-[#c8102e] p-4 text-sm"
-                  >
-                    60-64
-                  </option>
-                  <option
-                    value="65-69"
-                    className="bg-white text-[#c8102e] p-4 text-sm"
-                  >
-                    65-69
-                  </option>
-                  <option
-                    value="70-74"
-                    className="bg-white text-[#c8102e] p-4 text-sm"
-                  >
-                    70-74
-                  </option>
-                  <option
-                    value="75-79"
-                    className="bg-white text-[#c8102e] p-4 text-sm"
-                  >
-                    75-79
-                  </option>
-                  <option
-                    value="80+"
-                    className="bg-white text-[#c8102e] p-4 text-sm"
-                  >
-                    80+
-                  </option>
-                </select>
+                />
                 <label
-                  htmlFor="physical"
+                  htmlFor="age"
                   className={`absolute left-0 text-white font-lato font-bold tracking-widest transition-all duration-500 ${
                     ageFocused || ageHasText
                       ? "top-5 text-sm"
@@ -886,7 +809,8 @@ const Dashboard = () => {
 
             {/* Submit Button */}
           </form>
-          <div className="submit-section mt-[80px] ml-[600px] ">
+          <div className="flex justify-center">
+          <div className="submit-section mt-[80px]  ">
             <button
               type="submit"
               form="pre"
@@ -895,13 +819,14 @@ const Dashboard = () => {
               Submit
             </button>
           </div>
+          </div>
         </div>
       </div>
       <div className="seconds">
         <h1 className="font-lato font-bold uppercase text-3xl ml-20 mt-[50px]">
           recommendation
         </h1>
-        <div className="flex mx-20 justify-between mt-[50px]">
+        <div className="flex justify-evenly mt-[50px]">
           <div className="w-[405px] h-[452px] bg-[#dfe2e3] rounded-[10px] flex justify-center">
             <div className="w-[369px] h-[225px] mt-5 rounded-xl">
               <img
@@ -931,12 +856,12 @@ const Dashboard = () => {
           <div className="w-[405px] h-[452px] bg-[#dfe2e3] rounded-[10px] flex justify-center">
             <div className="w-[369px] h-[225px] mt-5 rounded-xl">
               <img
-                src={img2}
+                src={img3}
                 alt="ashlesha"
                 className="w-[369px] h-[225px] rounded-xl"
               />
               <p className="ml-1 mt-[12px] text-[#c8102e] font-lato text-[16px] ">
-                No smoking
+                No Drinking
               </p>
             </div>
           </div>
